@@ -1,0 +1,46 @@
+SEND MAIL:
+
+- $mail->Password: $pass;
+
+$pass không phải mật khẩu mail của bạn mà là mật khẩu ứng dựng "Thư trên Máy tính Windows của tôi".
+Mật khẩu chỉ cấp 1 lần (nên lưu lại), chưa có thì đăng ký.
+
+LOGIN FACEBOOK:
+
+<<Chỉnh sửa domain để đăng nhập được facebook trên local>>
+
+- C:Windows/System32/drivers/etc: 
+	Mở file host và thêm: 127.0.0.1 training.com để thêm domain ảo.
+- C:xampp/apache/conf/extra:
+	Mở file httpd-vhosts.conf để thay đổi VirtualHost:
+	
+	NameVirtualHost *:80
+	NameVirtualHost *:443
+	
+	<VirtualHost *:80>
+		DocumentRoot "C:/xampp/htdocs/paraline/hoangph"
+		ServerName training.com
+	</VirtualHost>
+
+	<VirtualHost *:443>
+		DocumentRoot "C:/xampp/htdocs/paraline/hoangph"
+		ServerName training.com
+		
+		SSLEngine on
+		SSLCertificateFile "C:\xampp\apache\conf\ssl.crt\server.crt"
+		SSLCertificateKeyFile "C:\xampp\apache\conf\ssl.key\server.key"
+	</VirtualHost>
+	
+<<Với C:/xampp/htdocs/paraline/hoangph: trỏ tới thư mục chứa code để chạy>>
+
+- Để chạy project thì chạy training.com (training.com/index.php) thay vì localhost/paraline/hoangph/index.php
+
+- Các thông tin trong app facebook cần lưu ý:
+	+ ID ứng dụng
+	+ Khóa bí mật
+	+ Miền ứng dụng: training.com
+	+ Url trang web: https://training.com/
+	+ Để login bằng nhiều tài khoản FB thì bật trạng thái của ứng dụng 
+	(Trạng thái: Đang phát triển -> Trực tiếp)
+	+ Để bật được trạng thái thì điền URL chính sách riêng tư: https://training.com/
+	

@@ -1,0 +1,1 @@
+It's temporary folder to save image before upload.
