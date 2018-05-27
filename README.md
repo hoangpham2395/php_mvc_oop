@@ -1,1 +1,3 @@
-# php_mvc_oop
+# PHP Users management
+- Users: Login facebook.
+- Admin: Super admin (all), admin (users managerment).
